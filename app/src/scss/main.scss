@@ -1,0 +1,11 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+.container {
+  background-color: #ededed;
+}
+
+.column-setup-modal {
+  .modal-content {
+    background-color: black;
+    color: white;
+  }
+}
