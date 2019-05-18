@@ -1,0 +1,18 @@
+[
+  {
+    "id" : "startTime",
+    "name" : "Start Time"
+  },
+  {
+    "id" : "stopTime",
+    "name" : "Stop Time"
+  },
+  {
+    "id" : "perPoint",
+    "name" : "Per Point"
+  },
+  {
+    "id" : "initialMargin",
+    "name" : "Initial Margin"
+  }
+]

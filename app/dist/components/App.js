@@ -23,16 +23,50 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+var availableColumnsData = [{
+  id: "startTime",
+  name: "Start Time"
+}, {
+  id: "stopTime",
+  name: "Stop Time"
+}, {
+  id: "perPoint",
+  name: "Per Point"
+}, {
+  id: "initialMargin",
+  name: "Initial Margin"
+}];
+var visibleColumnDatas = ["startTime", "stopTime"];
+
 function App() {
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       isColumnSetupDisplaying = _useState2[0],
       setColumnSetupDisplaying = _useState2[1];
 
+  var _useState3 = (0, _react.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      availableColumns = _useState4[0],
+      setAvailableColumns = _useState4[1];
+
+  var _useState5 = (0, _react.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      visibleColumns = _useState6[0],
+      setVisibleColumns = _useState6[1];
+
+  var _useState7 = (0, _react.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      fixedColumns = _useState8[0],
+      setfixedColumns = _useState8[1];
+
   var bottonText = isColumnSetupDisplaying ? 'Hide' : 'Show';
+  (0, _react.useEffect)(function () {
+    setAvailableColumns(availableColumnsData);
+    setVisibleColumns(visibleColumnDatas);
+  }, []);
 
   var onToggleColumnSetup = function onToggleColumnSetup(e) {
-    e.stopPropagation();
+    e ? e.stopPropagation() : null;
     setColumnSetupDisplaying(!isColumnSetupDisplaying);
   };
 
@@ -46,8 +80,11 @@ function App() {
     className: "row p-5"
   }, _react["default"].createElement(_reactBootstrap.Button, {
     onClick: onToggleColumnSetup
-  }, bottonText), _react["default"].createElement(_ColumnSetup["default"], {
-    isShow: isColumnSetupDisplaying,
-    onModalClose: onClose
-  })));
+  }, bottonText), isColumnSetupDisplaying ? _react["default"].createElement(_ColumnSetup["default"], {
+    isShow: true,
+    onModalClose: onClose,
+    availableColumns: availableColumns,
+    visibleColumns: visibleColumns,
+    fixedColumns: fixedColumns
+  }) : null, " "));
 }
