@@ -1,0 +1,100 @@
+@grey: #888b92;
+@darkGrey: #303238;
+@almostblack: #101116;
+@black: #000000;
+@white: #ffffff;
+@lightBlue: #4894c6;
+
+.container {
+  background-color: #ededed;
+}
+
+.column-setup-modal {
+  .modal-header {
+    h5 {
+      margin-bottom: .1rem;
+    }
+
+    P {
+      color: @grey;
+    }
+
+    .close {
+      color: @grey;
+      text-shadow: none;
+      padding: .3rem;
+      font-size: 2rem;
+    }
+
+    border-bottom: none;
+  }
+
+  .modal-content {
+    background-color: @almostblack;
+    color: #dbdfe8;
+    border-radius: 0;
+    max-height: 70vh;
+
+    .row {
+      background-color: @almostblack;
+
+      span {
+        color: @grey;
+      }
+
+      .drag-list {
+        .drag-object {
+          padding: 0.2rem;
+          transition: 0.1s;
+          background: @black;
+
+          span {
+            color: @black;
+          }
+        }
+
+        .drag-object.is-fixed, .drag-object.is-fixed:hover {
+          color: @grey;
+          cursor: not-allowed;
+          span {
+            color: @grey;
+          }
+        }
+
+        .drag-object:hover, .drag-object.is-dragging {
+          background: @darkGrey;
+
+          span {
+            color: @white;
+          }
+        }
+      }
+    }
+
+    .left-column {
+      border-right: 3px dashed @darkGrey;
+    }
+
+    .right-column {
+
+    }
+  }
+
+  .modal-footer {
+    border-top: none;
+    justify-content: flex-start;
+
+    .btn {
+      min-width: 6rem;
+      padding: .3rem .75rem;
+    }
+
+    .btn-primary {
+      background-color: @lightBlue;
+    }
+
+    .btn-primary:hover {
+      background-color: lighten(@lightBlue, 20%);
+    }
+  }
+}

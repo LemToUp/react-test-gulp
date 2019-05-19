@@ -9,6 +9,9 @@ var connect = require('gulp-connect');
 var open = require('gulp-open');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
+var less = require('gulp-less');
+var path = require('path');
+const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('transform', function() {
     return gulp.src('./app/src/**/*.jsx')
@@ -28,17 +31,22 @@ gulp.task('js', gulp.series('transform', function() {
         .pipe(connect.reload())
 }));
 
-gulp.task('sass', function () {
-    return gulp.src('./app/src/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(rename({dirname: ''}))
+gulp.task('less', function () {
+    return gulp.src('./app/src/less/*.less')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(less({
+            paths: [ path.join(__dirname, 'less', 'includes') ]
+        }))
         .pipe(gulp.dest('./css'))
         .pipe(connect.reload());
 });
 
 gulp.task('watch', function() {
     gulp.watch('./app/**/*.jsx', gulp.series('js'));
-    gulp.watch('./app/**/*.scss', gulp.series('sass'));
+    gulp.watch('./app/**/*.less', gulp.series('less'));
 });
 
 gulp.task('connect', function() {
@@ -56,6 +64,11 @@ gulp.task('open', gulp.series('connect', function() {
         }));
 }));
 
-gulp.task('default', gulp.parallel('open', 'watch'));
+gulp.task('copy', function () {
+    return gulp.src('./node_modules/bootstrap/dist/css/bootstrap.min.css')
+        .pipe(gulp.dest('./css'));
+});
+
+gulp.task('default', gulp.parallel('open', 'watch', 'copy'));
 
 

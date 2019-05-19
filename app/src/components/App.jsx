@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import ColumnSetup from './ColumnSetup';
 import {Button} from 'react-bootstrap';
-import availableColumnsData from '../data/columns.json';
+import columnsData from '../data/columns.json';
 import visibleColumnDatas from '../data/visibleColumns.json';
 
 export default function App() {
     const [isColumnSetupDisplaying, setColumnSetupDisplaying] = useState(false);
-    const [availableColumns, setAvailableColumns] = useState([]);
+    const [columns, setColumns] = useState([]);
     const [visibleColumns, setVisibleColumns] = useState([]);
-    const [fixedColumns, setfixedColumns] = useState([]);
+    const [fixedIndex, setFixedIndex] = useState(undefined);
     const bottonText = isColumnSetupDisplaying ? 'Hide' : 'Show';
 
     useEffect(
         () => {
-            setAvailableColumns(availableColumnsData);
+            setColumns(columnsData);
             setVisibleColumns(visibleColumnDatas);
         },
         [],
@@ -28,6 +28,11 @@ export default function App() {
         setColumnSetupDisplaying(false);
     };
 
+    const onGetData = (data) => {
+        console.log('Column Setup Component data:');
+        console.log(data);
+    };
+
     return (
         <div className="container">
             <div className="row p-5">
@@ -35,9 +40,10 @@ export default function App() {
                 {isColumnSetupDisplaying ? <ColumnSetup
                     isShow={true}
                     onModalClose={onClose}
-                    availableColumns={availableColumns}
+                    onSave={onGetData}
+                    columns={columns}
                     visibleColumns={visibleColumns}
-                    fixedColumns={fixedColumns}
+                    fixedIndex={fixedIndex}
                 /> : null} {/*State will be lost on close*/}
             </div>
         </div>

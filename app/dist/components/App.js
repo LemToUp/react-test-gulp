@@ -23,7 +23,7 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var availableColumnsData = [{
+var columnsData = [{
   id: "startTime",
   name: "Start Time"
 }, {
@@ -46,22 +46,22 @@ function App() {
 
   var _useState3 = (0, _react.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
-      availableColumns = _useState4[0],
-      setAvailableColumns = _useState4[1];
+      columns = _useState4[0],
+      setColumns = _useState4[1];
 
   var _useState5 = (0, _react.useState)([]),
       _useState6 = _slicedToArray(_useState5, 2),
       visibleColumns = _useState6[0],
       setVisibleColumns = _useState6[1];
 
-  var _useState7 = (0, _react.useState)([]),
+  var _useState7 = (0, _react.useState)(undefined),
       _useState8 = _slicedToArray(_useState7, 2),
-      fixedColumns = _useState8[0],
-      setfixedColumns = _useState8[1];
+      fixedIndex = _useState8[0],
+      setFixedIndex = _useState8[1];
 
   var bottonText = isColumnSetupDisplaying ? 'Hide' : 'Show';
   (0, _react.useEffect)(function () {
-    setAvailableColumns(availableColumnsData);
+    setColumns(columnsData);
     setVisibleColumns(visibleColumnDatas);
   }, []);
 
@@ -74,6 +74,11 @@ function App() {
     setColumnSetupDisplaying(false);
   };
 
+  var onGetData = function onGetData(data) {
+    console.log('Column Setup Component data:');
+    console.log(data);
+  };
+
   return _react["default"].createElement("div", {
     className: "container"
   }, _react["default"].createElement("div", {
@@ -83,8 +88,9 @@ function App() {
   }, bottonText), isColumnSetupDisplaying ? _react["default"].createElement(_ColumnSetup["default"], {
     isShow: true,
     onModalClose: onClose,
-    availableColumns: availableColumns,
+    onSave: onGetData,
+    columns: columns,
     visibleColumns: visibleColumns,
-    fixedColumns: fixedColumns
+    fixedIndex: fixedIndex
   }) : null, " "));
 }
