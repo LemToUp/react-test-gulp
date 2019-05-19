@@ -1,4 +1,12 @@
 [
-  "startTime",
-  "stopTime"
+  "Change %",
+  "Change",
+  "Last",
+  "Last Volume",
+  "Bid",
+  "Bid Size",
+  "Ask",
+  "Ask Size",
+  "Total Volume",
+  "High"
 ]

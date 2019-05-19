@@ -47,6 +47,7 @@ gulp.task('less', function () {
 gulp.task('watch', function() {
     gulp.watch('./app/**/*.jsx', gulp.series('js'));
     gulp.watch('./app/**/*.less', gulp.series('less'));
+    gulp.watch('./app/**/*.json');
 });
 
 gulp.task('connect', function() {

@@ -5,6 +5,8 @@
 @white: #ffffff;
 @lightBlue: #4894c6;
 
+@small-text: 0.8rem;
+
 .container {
   background-color: #ededed;
 }
@@ -17,6 +19,7 @@
 
     P {
       color: @grey;
+      font-size: @small-text;
     }
 
     .close {
@@ -33,50 +36,57 @@
     background-color: @almostblack;
     color: #dbdfe8;
     border-radius: 0;
-    max-height: 70vh;
+    max-height: 50vh;
 
     .row {
       background-color: @almostblack;
+    }
 
-      span {
-        color: @grey;
-      }
+    .modal-body {
+      overflow-y: auto;
 
-      .drag-list {
-        .drag-object {
-          padding: 0.2rem;
-          transition: 0.1s;
-          background: @black;
-
-          span {
-            color: @black;
-          }
-        }
-
-        .drag-object.is-fixed, .drag-object.is-fixed:hover {
+      .row {
+        span {
           color: @grey;
-          cursor: not-allowed;
+        }
+
+        .drag-list {
           span {
+            font-size: @small-text;
+          }
+          .drag-object {
+            padding: 0.2rem;
+            transition: 0.1s;
+            background: @black;
+
+            span {
+              display: inline-flex;
+              color: @black;
+              padding-bottom: 0.5rem;
+            }
+          }
+
+          .drag-object.is-fixed, .drag-object.is-fixed:hover {
             color: @grey;
+            cursor: not-allowed;
+            span {
+              color: @grey;
+            }
+          }
+
+          .drag-object:hover, .drag-object.is-dragging {
+            background: @darkGrey;
+
+            span {
+              color: @white;
+            }
           }
         }
 
-        .drag-object:hover, .drag-object.is-dragging {
-          background: @darkGrey;
-
-          span {
-            color: @white;
-          }
+        .left-column {
+          border-right: 3px dashed @darkGrey;
         }
       }
-    }
-
-    .left-column {
-      border-right: 3px dashed @darkGrey;
-    }
-
-    .right-column {
-
     }
   }
 
@@ -94,7 +104,7 @@
     }
 
     .btn-primary:hover {
-      background-color: lighten(@lightBlue, 20%);
+      background-color: darken(@lightBlue, 10%);
     }
   }
 }

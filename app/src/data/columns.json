@@ -14,5 +14,45 @@
   {
     "id" : "initialMargin",
     "name" : "Initial Margin"
+  },
+  {
+    "id" : "Change %",
+    "name" : "change%"
+  },
+  {
+    "id" : "Change",
+    "name" : "change"
+  },
+  {
+    "id" : "Last",
+    "name" : "last"
+  },
+  {
+    "id" : "Last Volume",
+    "name" : "lastVolume"
+  },
+  {
+    "id" : "Bid",
+    "name" : "bid"
+  },
+  {
+    "id" : "Bid Size",
+    "name" : "bidSize"
+  },
+  {
+    "id" : "Ask",
+    "name" : "ask"
+  },
+  {
+    "id" : "Ask Size",
+    "name" : "askSize"
+  },
+  {
+    "id" : "Total Volume",
+    "name" : "totalVolume"
+  },
+  {
+    "id" : "High",
+    "name" : "high"
   }
 ]

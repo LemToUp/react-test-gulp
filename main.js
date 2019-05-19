@@ -36,8 +36,38 @@ var columnsData = [{
 }, {
   id: "initialMargin",
   name: "Initial Margin"
+}, {
+  id: "Change %",
+  name: "change%"
+}, {
+  id: "Change",
+  name: "change"
+}, {
+  id: "Last",
+  name: "last"
+}, {
+  id: "Last Volume",
+  name: "lastVolume"
+}, {
+  id: "Bid",
+  name: "bid"
+}, {
+  id: "Bid Size",
+  name: "bidSize"
+}, {
+  id: "Ask",
+  name: "ask"
+}, {
+  id: "Ask Size",
+  name: "askSize"
+}, {
+  id: "Total Volume",
+  name: "totalVolume"
+}, {
+  id: "High",
+  name: "high"
 }];
-var visibleColumnDatas = ["startTime", "stopTime"];
+var visibleColumnDatas = ["Change %", "Change", "Last", "Last Volume", "Bid", "Bid Size", "Ask", "Ask Size", "Total Volume", "High"];
 
 function App() {
   var _useState = (0, _react.useState)(false),
